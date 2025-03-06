@@ -7,9 +7,16 @@ package fecha;
  * 
  */
 public class Fecha {
+<<<<<<< HEAD
 	private int d; //d�a
 	private int m; //mes
 	private int a; //a�o
+=======
+	public static final int DIEZ = 10;
+	private int dia; //d�a
+	private int mes; //mes
+	private int anio; //a�o
+>>>>>>> PMD-Refactor
 
 	
 	/**
@@ -32,9 +39,9 @@ public class Fecha {
 	 * @author alba.duque
 	 */
 	public Fecha(int dia, int mes, int anio) {
-		this.d = dia;
-		this.m = mes;
-		this.a = anio;
+		this.dia = dia;
+		this.mes = mes;
+		this.anio = anio;
 	}
 
 	
@@ -45,42 +52,48 @@ public class Fecha {
 	 * @author alba.duque
 	 */
 	public boolean fechaCorrecta() {
-		boolean diaCorrecto, mesCorrecto, anioCorrecto;
-		anioCorrecto = a > 0;
-		mesCorrecto = m >= 1 && m <= 12;
-		switch (m) {
+		boolean diaCorrecto;
+		boolean mesCorrecto;
+		boolean anioCorrecto;
+		anioCorrecto = anio > 0;
+		mesCorrecto = mes >= 1 && mes <= 12;
+		boolean diaMayor1 = dia >= 1;
+		switch (mes) {
 		case 2:
 			if (esBisiesto()) {
-				diaCorrecto = d >= 1 && d <= 29;
+				diaCorrecto = diaMayor1 && dia <= 29;
 			} else {
-				diaCorrecto = d >= 1 && d <= 28;
+				diaCorrecto = diaMayor1 && dia <= 28;
 			}
 			break;
 		case 4:
 		case 6:
 		case 9:
 		case 11:
-			diaCorrecto = d >= 1 && d <= 30;
+			diaCorrecto = diaMayor1 && dia <= 30;
 			break;
 		default:
-			diaCorrecto = d >= 1 && d <= 31;
+			diaCorrecto = diaMayor1 && dia <= 31;
 		}
 		return diaCorrecto && mesCorrecto && anioCorrecto;
 	}
 
 	// M�todo esBisiesto. Solo lo usa fechaCorrecta, por eso es privado
+<<<<<<< HEAD
 	/**
 	 * esBisiesto es una clase privada que comprueba si el año es bisiesto o no.
 	 * @see Solo la utiliza fechaCorrecta
 	 * @return devuelve si es Bisiesto o no
 	 * @author alba.duque
 	 */
+=======
+>>>>>>> PMD-Refactor
 	private boolean esBisiesto() {
-		boolean esBisiesto = (a % 4 == 0 && a % 100 != 0 || a % 400 == 0);
-		return esBisiesto;
+		return anio % 4 == 0 && anio % 100 != 0 || anio % 400 == 0;
 	}
 
 	// M�todo diaSiguiente
+<<<<<<< HEAD
 	/**
 	 * El metodo diaSiguiente lo que hace es incrementar un dia 
 	 * a la fecha
@@ -88,31 +101,42 @@ public class Fecha {
 	 */
 	public void diaSiguiente() {
 		d++;
+=======
+	public void nextDay() {
+		dia++;
+>>>>>>> PMD-Refactor
 		if (!fechaCorrecta()) {
-			d = 1;
-			m++;
+			dia = 1;
+			mes++;
 			if (!fechaCorrecta()) {
-				m = 1;
-				a++;
+				mes = 1;
+				anio++;
 			}
 		}
 	}
 
 	// M�todo toString
+<<<<<<< HEAD
 	/**
 	 * El metodo toString devuelve la fecha por escrito
 	 * @author alba.duque
 	 */
+=======
+>>>>>>> PMD-Refactor
 	public String toString() {
-		if (d < 10 && m < 10) {
-			return "0" + d + "-0" + m + "-" + a;
-		} else if (d < 10 && m >= 10) {
-			return "0" + d + "-" + m + "-" + a;
-		} else if (d >= 10 && m < 10) {
-			return d + "-0" + m + "-" + a;
+		
+		String devolver="";
+		
+		if (dia < DIEZ && mes < DIEZ) {
+			devolver= "0" + dia + "-0" + mes + "-" + anio;
+		} else if (dia < DIEZ && mes >= DIEZ) {
+			devolver="0" + dia + "-" + mes + "-" + anio;
+		} else if (dia >= DIEZ && mes < DIEZ) {
+			devolver= dia + "-0" + mes + "-" + anio;
 		} else {
-			return d + "-" + m + "-" + a;
+			devolver= dia + "-" + mes + "-" + anio;
 		}
+		return devolver;
 	}
 
 }
