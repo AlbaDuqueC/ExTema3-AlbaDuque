@@ -7,16 +7,12 @@ package fecha;
  * 
  */
 public class Fecha {
-<<<<<<< HEAD
-	private int d; //d�a
-	private int m; //mes
-	private int a; //a�o
-=======
+
 	public static final int DIEZ = 10;
 	private int dia; //d�a
 	private int mes; //mes
 	private int anio; //a�o
->>>>>>> PMD-Refactor
+
 
 	
 	/**
@@ -79,32 +75,27 @@ public class Fecha {
 	}
 
 	// M�todo esBisiesto. Solo lo usa fechaCorrecta, por eso es privado
-<<<<<<< HEAD
 	/**
 	 * esBisiesto es una clase privada que comprueba si el año es bisiesto o no.
 	 * @see Solo la utiliza fechaCorrecta
 	 * @return devuelve si es Bisiesto o no
 	 * @author alba.duque
 	 */
-=======
->>>>>>> PMD-Refactor
+
 	private boolean esBisiesto() {
 		return anio % 4 == 0 && anio % 100 != 0 || anio % 400 == 0;
 	}
 
 	// M�todo diaSiguiente
-<<<<<<< HEAD
+
 	/**
 	 * El metodo diaSiguiente lo que hace es incrementar un dia 
 	 * a la fecha
 	 * @author alba.duque
 	 */
-	public void diaSiguiente() {
-		d++;
-=======
+	
 	public void nextDay() {
 		dia++;
->>>>>>> PMD-Refactor
 		if (!fechaCorrecta()) {
 			dia = 1;
 			mes++;
@@ -114,15 +105,15 @@ public class Fecha {
 			}
 		}
 	}
+	
 
 	// M�todo toString
-<<<<<<< HEAD
+
 	/**
 	 * El metodo toString devuelve la fecha por escrito
 	 * @author alba.duque
 	 */
-=======
->>>>>>> PMD-Refactor
+
 	public String toString() {
 		
 		String devolver="";
