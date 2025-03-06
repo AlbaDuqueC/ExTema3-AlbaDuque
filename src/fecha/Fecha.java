@@ -1,16 +1,36 @@
 package fecha;
 
+/**
+ * La clase Fecha, es la que contiene los distintos tipos de datos 
+ * o dunciones como los dias, el mes y el aÃ±o.
+ * @author alba.duque
+ * 
+ */
 public class Fecha {
-	private int d; //día
+	private int d; //dï¿½a
 	private int m; //mes
-	private int a; //año
+	private int a; //aï¿½o
 
 	
+	/**
+	 * 
+	 * @deprecatede no se usa ya este metodo
+	 * @author alba.duque
+	 */
 	public Fecha() {
 
 	}
 
 	
+	/**
+	 * La funcion Fecha es la que le da valor a las variable, 
+	 * introduciendo los siguientes parametro y igualarndolos 
+	 * a las variables.
+	 * @param dia
+	 * @param mes
+	 * @param anio
+	 * @author alba.duque
+	 */
 	public Fecha(int dia, int mes, int anio) {
 		this.d = dia;
 		this.m = mes;
@@ -18,7 +38,12 @@ public class Fecha {
 	}
 
 	
-	
+	/**
+	 * fechacorrecta sirve para verificar que los datos esten bien
+	 * @return devuelve un bollean que decide si los dias,
+	 * mes y aÃ±o estan correctos
+	 * @author alba.duque
+	 */
 	public boolean fechaCorrecta() {
 		boolean diaCorrecto, mesCorrecto, anioCorrecto;
 		anioCorrecto = a > 0;
@@ -43,13 +68,24 @@ public class Fecha {
 		return diaCorrecto && mesCorrecto && anioCorrecto;
 	}
 
-	// Método esBisiesto. Solo lo usa fechaCorrecta, por eso es privado
+	// Mï¿½todo esBisiesto. Solo lo usa fechaCorrecta, por eso es privado
+	/**
+	 * esBisiesto es una clase privada que comprueba si el aÃ±o es bisiesto o no.
+	 * @see Solo la utiliza fechaCorrecta
+	 * @return devuelve si es Bisiesto o no
+	 * @author alba.duque
+	 */
 	private boolean esBisiesto() {
 		boolean esBisiesto = (a % 4 == 0 && a % 100 != 0 || a % 400 == 0);
 		return esBisiesto;
 	}
 
-	// Método diaSiguiente
+	// Mï¿½todo diaSiguiente
+	/**
+	 * El metodo diaSiguiente lo que hace es incrementar un dia 
+	 * a la fecha
+	 * @author alba.duque
+	 */
 	public void diaSiguiente() {
 		d++;
 		if (!fechaCorrecta()) {
@@ -62,7 +98,11 @@ public class Fecha {
 		}
 	}
 
-	// Método toString
+	// Mï¿½todo toString
+	/**
+	 * El metodo toString devuelve la fecha por escrito
+	 * @author alba.duque
+	 */
 	public String toString() {
 		if (d < 10 && m < 10) {
 			return "0" + d + "-0" + m + "-" + a;
